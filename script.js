@@ -37,10 +37,11 @@ form.addEventListener("submit", (e) => {
     form.reset();
     successMessage.style.display = "block";
 
-    // Hide after 59s
+    // Hide after 3s
     setTimeout(() => {
       successMessage.style.display = "none";
-    }, 3000);
+    }, 59000);
   }, 1500);
 });
+
 
