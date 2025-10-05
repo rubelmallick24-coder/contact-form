@@ -1,24 +1,45 @@
-// Dark / Light theme toggle
-const toggle = document.getElementById("themeToggle");
-toggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
-});
+// Theme toggle with localStorage
+const themeToggle = document.getElementById("themeToggle");
+const body = document.body;
 
-// Load preference
+// Load saved theme
 if (localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark");
+  body.classList.add("dark");
+  themeToggle.textContent = "☀️";
 }
 
-// Form handler (just demo — replace with Firebase/Email API later)
+themeToggle.addEventListener("click", () => {
+  body.classList.toggle("dark");
+  if (body.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+    themeToggle.textContent = "☀️";
+  } else {
+    localStorage.setItem("theme", "light");
+    themeToggle.textContent = "🌙";
+  }
+});
+
+// Contact form (demo only — replace with Firebase + email logic)
 const form = document.getElementById("contactForm");
+const successMessage = document.getElementById("successMessage");
+const submitBtn = document.getElementById("submitBtn");
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const btn = document.getElementById("submitBtn");
-  btn.innerText = "Sending...";
+
+  // Add loading state
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Sending...";
+
   setTimeout(() => {
-    btn.innerText = "Submit";
-    alert("✅ Message sent successfully!");
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Submit";
     form.reset();
-  }, 1200);
+    successMessage.style.display = "block";
+
+    // Hide after 3s
+    setTimeout(() => {
+      successMessage.style.display = "none";
+    }, 3000);
+  }, 1500);
 });
