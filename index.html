@@ -1,122 +1,71 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact — Trading Support</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- stylesheet -->
-  <link rel="stylesheet" href="/styles/style.css">
-
-  <!-- confetti lib (browser build) -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js" defer></script>
-
-  <!-- firebase (we import inside module script.js) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RBL Trading - Contact Us</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="page-bg" aria-hidden="true"></div>
-
-  <header class="topbar">
+  <!-- Header -->
+  <header class="header">
     <div class="brand">
-      <img src="/styles/logo.png" alt="logo" class="logo" onerror="this.style.display='none'"/>
-      <div class="brand-text">
-        <div class="brand-title">RBL Trading</div>
-        <div class="brand-sub">Trade smarter • Learn faster</div>
-      </div>
+      <h1>RBL Trading</h1>
+      <p>Trade smarter • Learn faster</p>
     </div>
-
-    <div class="top-actions">
-      <a class="cta" href="https://t.me/yourtelegram" target="_blank" rel="noopener">Join our Telegram</a>
-
-      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg>
-      </button>
-    </div>
+    <nav class="nav">
+      <a href="#">Join our Telegram</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle">🌙</button>
   </header>
 
-  <main class="container">
-    <section class="card">
-      <div class="card-left">
-        <h1 class="title">Contact Us</h1>
-        <p class="subtitle">Ask about courses, subscriptions or partnership — we’ll reply quickly.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <p class="hero-sub">Ask about courses, subscriptions or partnership — we’ll reply quickly.</p>
+  </section>
 
-        <form id="contactForm" class="form" autocomplete="on">
-          <div class="field">
-            <input id="name" name="name" type="text" placeholder=" " required maxlength="80" />
-            <label for="name" class="label">Full name</label>
-          </div>
-
-          <div class="field">
-            <input id="mobile" name="mobile" type="tel" placeholder=" " inputmode="tel" maxlength="24" />
-            <label for="mobile" class="label">Mobile number</label>
-          </div>
-
-          <div class="field">
-            <input id="email" name="email" type="email" placeholder=" " required maxlength="120" />
-            <label for="email" class="label">Email id</label>
-          </div>
-
-          <div class="field">
-            <textarea id="message" name="message" rows="4" placeholder=" " required maxlength="1000"></textarea>
-            <label for="message" class="label">Message</label>
-          </div>
-
-          <div class="form-row">
-            <label class="checkbox">
-              <input id="subscribe" name="subscribe" type="checkbox" />
-              <span>Subscribe to updates</span>
-            </label>
-
-            <div class="actions">
-              <button id="submitBtn" type="submit" class="btn">
-                <svg id="btnSpinner" class="btn-spinner" viewBox="0 0 50 50" aria-hidden="true">
-                  <circle cx="25" cy="25" r="20" fill="none" stroke-width="4" stroke-linecap="round"/>
-                </svg>
-                <span class="btn-text">Submit</span>
-              </button>
-            </div>
-          </div>
-
-          <div id="formStatus" class="status" aria-live="polite"></div>
-        </form>
-      </div>
-
-      <aside class="card-right">
-        <div class="info">
-          <h2>Quick contact</h2>
-          <p>Call or WhatsApp: <strong>+91 12345 67890</strong></p>
-          <p>Email: <strong>support@rbltrading.example</strong></p>
-
-          <ul class="features">
-            <li>Fast response</li>
-            <li>Secure</li>
-            <li>Mobile friendly</li>
-          </ul>
+  <!-- Contact Form -->
+  <section class="contact-section" id="contact">
+    <div class="contact-card">
+      <form id="contactForm">
+        <div class="form-group">
+          <input type="text" name="fullName" id="fullName" required>
+          <label for="fullName">Full name</label>
         </div>
-
-        <div id="successBox" class="success hidden" role="status" aria-hidden="true">
-          <div class="checkmark-wrap">
-            <svg class="checkmark" viewBox="0 0 52 52" aria-hidden="true">
-              <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
-              <path class="checkmark-check" fill="none" d="M14 27 l7 7 l17 -17"/>
-            </svg>
-          </div>
-          <h3>Message sent</h3>
-          <p>Thanks — we got your message. We’ll reply within 24 hours.</p>
-          <button id="sendAnother" class="btn btn-ghost">Send another</button>
+        <div class="form-group">
+          <input type="tel" name="mobile" id="mobile" required>
+          <label for="mobile">Mobile number</label>
         </div>
-      </aside>
-    </section>
+        <div class="form-group">
+          <input type="email" name="email" id="email" required>
+          <label for="email">Email id</label>
+        </div>
+        <div class="form-group">
+          <textarea name="message" id="message" required></textarea>
+          <label for="message">Message</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="subscribe" name="subscribe">
+          <label for="subscribe">Subscribe to updates</label>
+        </div>
+        <button type="submit" id="submitBtn">Submit</button>
+      </form>
+    </div>
+  </section>
 
-    <footer class="footer">
-      <small>© <span id="year"></span> RBL Trading — Built with ❤️</small>
-    </footer>
-  </main>
+  <!-- Quick contact -->
+  <section class="quick-contact">
+    <h2>Quick contact</h2>
+    <p>Call or WhatsApp: <a href="tel:+911234567890">+91 12345 67890</a></p>
+    <p>Email: <a href="mailto:support@rbltrading.example">support@rbltrading.example</a></p>
+    <ul>
+      <li>⚡ Fast response</li>
+      <li>🔒 Secure</li>
+      <li>📱 Mobile friendly</li>
+    </ul>
+  </section>
 
-  <!-- module script imports firebase & handles UI + submit -->
-  <script type="module" src="/scripts/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
