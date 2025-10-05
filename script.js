@@ -19,7 +19,7 @@ themeToggle.addEventListener("click", () => {
   }
 });
 
-// Contact form (demo only — replace with Firebase + email logic)
+// Contact form demo success
 const form = document.getElementById("contactForm");
 const successMessage = document.getElementById("successMessage");
 const submitBtn = document.getElementById("submitBtn");
@@ -33,7 +33,7 @@ form.addEventListener("submit", (e) => {
 
   setTimeout(() => {
     submitBtn.disabled = false;
-    submitBtn.textContent = "Submit";
+    submitBtn.textContent = "Send Message";
     form.reset();
     successMessage.style.display = "block";
 
